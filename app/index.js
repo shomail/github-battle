@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1>Github Battleground</h1>
+        <h1>Github Explorer</h1>
         <Popluar />
       </div>
     )
