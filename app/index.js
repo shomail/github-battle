@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import './index.css';
-// import Popluar from './components/Popular';
+import Popluar from './components/Popular';
 
 class App extends React.Component {
   render() {
     return (
       <div className='container'>
         <h1>Github Battleground</h1>
-        {/* <Popluar /> */}
+        <Popluar />
       </div>
     )
   }
