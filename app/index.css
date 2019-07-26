@@ -89,6 +89,12 @@ h1 {
   margin: 20px;
 }
 
+.header-sm {
+  font-size: 2.8rem;
+  font-weight: 300;
+  margin: 2rem auto;
+}
+
 .avatar {
   width: 15rem;
   height: 15rem;
@@ -144,4 +150,28 @@ h1 {
 
 .repo img {
   margin-bottom: 8px;
+}
+
+.instructions-container {
+  margin: 10rem 0;
+}
+
+.container-sm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.battle-instructions {
+  padding: 0;
+  font-size: 2.5rem;
+}
+
+.battle-instructions li {
+  flex: 1;
+  min-width: 300px;
+}
+
+.battle-instructions svg {
+  padding: 4rem;
+  border-radius: 3px;
 }
