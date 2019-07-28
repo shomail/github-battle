@@ -32,6 +32,17 @@ export default class Results extends React.Component {
             })
     }
     render() {
+        const { winner, losser, loading, error} = this.state;
+
+        if(loading) {
+            return <p>LOADING...</p>
+        }
+
+        if(error) {
+            return (
+                <p className='center-text error'>{error}</p>
+            )
+        }
         return (
             <div>
                 Results
