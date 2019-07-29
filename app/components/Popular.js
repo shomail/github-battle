@@ -7,7 +7,7 @@ import {
   FaExclamationTriangle,
 } from 'react-icons/fa';
 import { fetchPopularRepos } from '../utils/api';
-import Card from './Card'
+import Card from './Card';
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
@@ -57,23 +57,21 @@ function ReposGrid({ repos }) {
               href={html_url}
               name={login}
             >
-              <ul className='card-list'>
+              <ul className="card-list">
                 <li>
-                  <FaUser color='rgb(255, 191, 116)' size={22} />
-                  <a href={`https://github.com/${login}`}>
-                    {login}
-                  </a>
+                  <FaUser color="rgb(255, 191, 116)" size={22} />
+                  <a href={`https://github.com/${login}`}>{login}</a>
                 </li>
                 <li>
-                  <FaStar color='rgb(255, 215, 0)' size={22} />
+                  <FaStar color="rgb(255, 215, 0)" size={22} />
                   {stargazers_count.toLocaleString()} stars
                 </li>
                 <li>
-                  <FaCodeBranch color='rgb(129, 195, 245)' size={22} />
+                  <FaCodeBranch color="rgb(129, 195, 245)" size={22} />
                   {forks.toLocaleString()} forks
                 </li>
                 <li>
-                  <FaExclamationTriangle color='rgb(241, 138, 147)' size={22} />
+                  <FaExclamationTriangle color="rgb(241, 138, 147)" size={22} />
                   {open_issues.toLocaleString()} open
                 </li>
               </ul>
