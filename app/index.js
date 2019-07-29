@@ -7,11 +7,11 @@ import Battle from './components/Battle';
 class App extends React.Component {
   render() {
     return (
-      <div className='container'>
+      <div className="container">
         <h1>Github Explorer</h1>
         <Battle />
       </div>
-    )
+    );
   }
 }
 
