@@ -34,7 +34,7 @@ export default function withHover(Component) {
           onMouseOver={this.mouseOver}
           onMouseOut={this.mouseOut}
         >
-          <Component hovering={hovering} />
+          <Component hovering={hovering} {...this.props} />
         </div>
       );
     }
