@@ -68,10 +68,10 @@ const styles = {
 // }
 
 // to reuse hover logic we can use HOC
-function Tooltip({ text, children, hovering }) {
+function Tooltip({ text, children, isHover }) {
   return (
     <div style={styles.container}>
-      {hovering === true && <div style={styles.tooltip}>{text}</div>}
+      {isHover === true && <div style={styles.tooltip}>{text}</div>}
       {children}
     </div>
   );
@@ -80,7 +80,7 @@ function Tooltip({ text, children, hovering }) {
 Tooltip.propTypes = {
   text: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
-  hovering: PropTypes.bool.isRequired,
+  isHover: PropTypes.bool.isRequired,
 };
 
-export default withHover(Tooltip);
+export default withHover(Tooltip, 'isHover');

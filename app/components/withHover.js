@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function withHover(Component) {
+export default function withHover(Component, propName = 'hovering') {
   return class WithHover extends React.Component {
     constructor(props) {
       super(props);
@@ -27,6 +27,10 @@ export default function withHover(Component) {
 
     render() {
       const { hovering } = this.state;
+      const props = {
+        [propName]: hovering,
+        ...this.props,
+      };
       return (
         <div
           onFocus={this.mouseOver}
@@ -34,7 +38,7 @@ export default function withHover(Component) {
           onMouseOver={this.mouseOver}
           onMouseOut={this.mouseOut}
         >
-          <Component hovering={hovering} {...this.props} />
+          <Component {...props} />
         </div>
       );
     }
