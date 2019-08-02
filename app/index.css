@@ -38,6 +38,12 @@ li {
   padding: 50px;
 }
 
+.dark {
+  color: #dadada;
+  background: #1c2022;
+  min-height: 100%;
+}
+
 h1 {
   font-weight: 100;
   font-size: 6rem;
