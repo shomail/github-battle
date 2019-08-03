@@ -58,8 +58,10 @@ class PlayerInput extends React.Component {
   }
 
   handleSubmit(e) {
+    const { username } = this.state;
+    const { onSubmit } = this.props;
     e.preventDefault();
-    this.props.onSubmit(this.state.username);
+    onSubmit(username);
   }
 
   handleChange(e) {
@@ -69,12 +71,15 @@ class PlayerInput extends React.Component {
   }
 
   render() {
+    const { username } = this.state;
+    const { label } = this.props;
     return (
       <ThemeConsumer>
         {({ theme }) => (
           <form className="column player" onSubmit={this.handleSubmit}>
+            {/* eslint-disable-next-line jsx-a11y/label-has-for */}
             <label htmlFor="username" className="player-label">
-              {this.props.label}
+              {label}
             </label>
             <div className="row player-inputs">
               <input
@@ -83,13 +88,13 @@ class PlayerInput extends React.Component {
                 className={`input-${theme}`}
                 placeholder="Github Username"
                 autoComplete="off"
-                value={this.state.username}
+                value={username}
                 onChange={this.handleChange}
               />
               <button
                 type="submit"
                 className={`btn ${theme === 'dark' ? 'light' : 'dark'}-btn`}
-                disabled={!this.state.username}
+                disabled={!username}
               >
                 Submit
               </button>
@@ -218,6 +223,7 @@ export default class Battle extends React.Component {
           </div>
           {playerOne && playerTwo && (
             <button
+              type="button"
               className="btn dark-btn btn-space"
               onClick={() => this.setState({ battle: true })}
             >

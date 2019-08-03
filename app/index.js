@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import './index.css';
-import Popluar from './components/Popular';
+import Popular from './components/Popular';
 import Battle from './components/Battle';
 import { ThemeProvider } from './contexts/theme';
 import Nav from './components/Nav';
@@ -21,9 +21,10 @@ class App extends React.Component {
   }
 
   render() {
+    const { theme, toggleTheme } = this.state;
     return (
-      <ThemeProvider value={this.state}>
-        <div className={this.state.theme}>
+      <ThemeProvider value={{ theme, toggleTheme }}>
+        <div className={theme}>
           <div className="container">
             <Nav />
             <h1>Github Explorer</h1>
