@@ -76,6 +76,10 @@ h1 {
   transition: color 0.2s;
 }
 
+.nav li {
+  margin-right: 10px;
+}
+
 .nav-link:hover {
   color: lightcoral;
 }
@@ -87,6 +91,10 @@ h1 {
 
 .space-around {
   justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .header-lg {
