@@ -70,29 +70,33 @@ class PlayerInput extends React.Component {
 
   render() {
     return (
-      <form className="column player" onSubmit={this.handleSubmit}>
-        <label htmlFor="username" className="player-label">
-          {this.props.label}
-        </label>
-        <div className="row player-inputs">
-          <input
-            type="text"
-            id="username"
-            className="input-light"
-            placeholder="Github Username"
-            autoComplete="off"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <button
-            type="submit"
-            className="btn dark-btn"
-            disabled={!this.state.username}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+      <ThemeConsumer>
+        {({ theme }) => (
+          <form className="column player" onSubmit={this.handleSubmit}>
+            <label htmlFor="username" className="player-label">
+              {this.props.label}
+            </label>
+            <div className="row player-inputs">
+              <input
+                type="text"
+                id="username"
+                className={`input-${theme}`}
+                placeholder="Github Username"
+                autoComplete="off"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+              <button
+                type="submit"
+                className={`btn ${theme === 'dark' ? 'light' : 'dark'}-btn`}
+                disabled={!this.state.username}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
+      </ThemeConsumer>
     );
   }
 }
