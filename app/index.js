@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import Popular from './components/Popular';
 import Battle from './components/Battle';
@@ -23,15 +24,18 @@ class App extends React.Component {
   render() {
     const { theme, toggleTheme } = this.state;
     return (
-      <ThemeProvider value={{ theme, toggleTheme }}>
-        <div className={theme}>
-          <div className="container">
-            <Nav />
-            <h1>Github Explorer</h1>
-            <Battle />
+      <Router>
+        <ThemeProvider value={{ theme, toggleTheme }}>
+          <div className={theme}>
+            <div className="container">
+              <Nav />
+              <h1>Github Explorer</h1>
+              <Route exact path="/" component={Popular} />
+              <Route path="/battle" component={Battle} />
+            </div>
           </div>
-        </div>
-      </ThemeProvider>
+        </ThemeProvider>
+      </Router>
     );
   }
 }
