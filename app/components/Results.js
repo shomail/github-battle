@@ -8,6 +8,8 @@ import {
   FaUser,
 } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
+import { Link } from 'react-router-dom';
 import { battle } from '../utils/api';
 import Card from './Card';
 import Loading from './Loading';
@@ -65,7 +67,9 @@ export default class Results extends React.Component {
   }
 
   componentDidMount() {
-    const { playerOne, playerTwo } = this.props;
+    const { playerOne, playerTwo } = queryString.parse(
+      this.props.location.search
+    );
 
     battle([playerOne, playerTwo]).then(players => {
       this.setState({
@@ -84,8 +88,7 @@ export default class Results extends React.Component {
 
   render() {
     const { winner, loser, loading, error } = this.state;
-    const { onReset } = this.props;
-    if (error) {
+    if (loading) {
       return <Loading text="Battling" />;
     }
     return (
@@ -110,20 +113,10 @@ export default class Results extends React.Component {
             <ProfileList profile={loser.profile} />
           </Card>
         </div>
-        <button
-          type="button"
-          onClick={onReset}
-          className="btn dark-btn btn-space"
-        >
+        <Link className="btn dark-btn btn-space" to="/battle">
           Reset
-        </button>
+        </Link>
       </React.Fragment>
     );
   }
 }
-
-Results.propTypes = {
-  playerOne: PropTypes.string.isRequired,
-  playerTwo: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired,
-};
