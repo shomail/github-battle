@@ -52,17 +52,25 @@ function ReposGrid({ repos }) {
         const { login, avatar_url } = owner;
 
         return (
-          <li key={html_url} className="card bg-light">
+          <li key={html_url}>
             <Card
               header={`#${index + 1}`}
               avatar={avatar_url}
               href={html_url}
-              name={login}
+              name={name}
             >
               <ul className="card-list">
                 <Tooltip text="Github username">
-                  <FaUser color="rgb(255, 191, 116)" size={22} />
-                  <a href={`https://github.com/${login}`}>{login}</a>
+                  <>
+                    <FaUser color="rgb(255, 191, 116)" size={22} />
+                    <a
+                      href={`https://github.com/${login}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {login}
+                    </a>
+                  </>
                 </Tooltip>
                 <li>
                   <FaStar color="rgb(255, 215, 0)" size={22} />

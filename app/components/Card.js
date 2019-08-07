@@ -18,7 +18,12 @@ export default function Card({
           <img className="avatar" src={avatar} alt={`Avatar for ${name}`} />
           {subheader && <h4 className="center-text">{subheader}</h4>}
           <h2 className="center-text">
-            <a className="link" href={href}>
+            <a
+              className="link"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {name}
             </a>
           </h2>
